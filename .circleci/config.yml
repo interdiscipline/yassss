@@ -74,9 +74,9 @@ jobs:
           paths:
             - _site
 
-      # - run:
-      #     name: Run HTML-Proofer
-      #     command: bundle exec rake html_proofer
+      - run:
+          name: Run HTML-Proofer
+          command: bundle exec rake html_proofer
 
 # deploy jobs go here
 # assumes AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set as env variables
