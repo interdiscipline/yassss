@@ -7,6 +7,8 @@
 
 The goal of Yassss is simple and unambitious: provide a quick, easy way to spin up a new static site, using Jekyll, without much tinkering. It has opinions and maybe you agree with them and will also find it useful.
 
+[View the demo build.](https://yassss.site)
+
 ### Setup
 
 Use this repo as a template—no need to clone it or fork it unless you’re planning to contribute.
