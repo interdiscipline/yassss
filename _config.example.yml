@@ -22,7 +22,7 @@ ga_id:
 #### you can pretty much ignore everything in this section ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ## basic settings
-url: "http://yassss.dev" # the base hostname & protocol for your site (include protocol ‘https://’)
+url: "https://yassss.site" # the base hostname & protocol for your site (include protocol ‘https://’)
 block_indexing: BLOCK_INDEXING # sets noindex site-wide if `true` (may be desirable for staging servers)
 
 plugins:
