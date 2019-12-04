@@ -1,0 +1,16 @@
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ mixins + defaults
+
+// check Bourbon docs before adding here
+// https://www.bourbon.io/docs/latest
+
+@function em($pxInt) {
+  @return (strip-unit($pxInt) / 16) + 0rem; // stylelint-disable-line length-zero-no-unit
+}
+
+@mixin hover {
+  @media (any-hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

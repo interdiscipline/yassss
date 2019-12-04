@@ -1,0 +1,128 @@
+# CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    working_directory: ~/yassss
+
+    docker:
+      - image: circleci/ruby:2.6.5-node
+        environment:
+          JEKYLL_ENV: production
+
+    environment:
+      URL_PROD: yassss.demo
+      URL_STAGING: staging.yassss.demo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: yarn --ignore-engines install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+            - node_modules
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.json" }}
+
+      # Set up the config
+      - run:
+          name: Set up the local config
+          command: |
+            cp _config.example.yml _config.yml
+
+      - run:
+          name: Insert environment variables into config.yml
+          command: |
+            export BASE_URL=$URL_STAGING
+            export BLOCK_INDEXING=true
+            if [ "${CIRCLE_BRANCH}" == "production" ]; then
+                export BASE_URL=$URL_PROD
+                export BLOCK_INDEXING=false
+            fi
+            echo $BASE_URL
+            echo $BLOCK_INDEXING
+            sed -i.tmp s/BASE_URL/$BASE_URL/ _config.yml
+            sed -i.tmp s/BLOCK_INDEXING/$BLOCK_INDEXING/ _config.yml
+
+      # Linting/style and security checks
+      - run:
+          name: Check code style
+          # the combined `yarn lint` command only surfaces the exit code of the second command (stylelint)
+          # and will not cause the build to fail on a javascript linting error
+          command: |
+            yarn lint:js
+            yarn lint:css
+
+      - run:
+          name: Build the site
+          command: bundle exec jekyll build
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - _site
+
+      - run:
+          name: Run HTML-Proofer
+          command: bundle exec rake html_proofer
+
+# deploy jobs go here
+# assumes AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set as env variables
+  deploy:
+    working_directory: ~/yassss_deploy
+
+    docker:
+      - image: circleci/python:3.6.3
+
+    environment:
+      S3_BUCKET_NAME_PROD: yassss.demo
+      S3_BUCKET_NAME_STAGING: yassss.demo
+      URL_PROD: yassss.demo
+      URL_STAGING: staging.yassss.demo
+
+    steps:
+      - attach_workspace:
+          at: ./
+
+      - run:
+          name: Install awscli
+          command: pip install awscli --upgrade --user
+
+      - run:
+          name: Deploy to production/staging
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "production" ]; then
+                ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_PROD/ --delete --acl public-read
+            elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
+                ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_STAGING/ --delete --acl public-read
+            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+                ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_STAGING/ --delete --acl public-read
+            fi
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - production
+                - staging
+                - master
+

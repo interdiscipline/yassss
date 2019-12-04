@@ -1,0 +1,115 @@
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ typography defaults
+$body: $font-stack-system;
+
+/* Typography Bible -------------------
+
+* Regular (400)
+* Bold (700)
+
+------------------- */
+
+@mixin type-size(
+  $size: 16,
+  $lineHeight: 1.5,
+  $margin: false
+) {
+  @if $margin {
+    margin-top: 0;
+    margin-bottom: em($size);
+  }
+  font-size: em($size);
+  line-height: $lineHeight;
+}
+
+@mixin link-handler(
+  $baseColor: null,
+  $hoverColor: null,
+  $activeColor: null,
+  $baseLine: null,
+  $hoverLine: null,
+  $activeLine: null
+) {
+  @if $baseColor { color: $baseColor; }
+
+  @if $baseLine == true {
+    text-decoration: underline;
+  } @else if $baseLine == false {
+    text-decoration: none;
+  }
+
+  @include hover {
+    @if $hoverColor { color: $hoverColor; }
+
+    @if $hoverLine == true {
+      text-decoration: underline;
+    } @else if $hoverLine == false {
+      text-decoration: none;
+    }
+  }
+
+  &:active {
+    @if $activeColor { color: $activeColor; }
+
+    @if $activeLine == true {
+      text-decoration: underline;
+    } @else if $activeLine == false {
+      text-decoration: none;
+    }
+  }
+}
+
+// specific type styles
+@mixin type-big($margin: false) {
+  @include type-size(42, 1.25, $margin);
+}
+
+@mixin type-normal($margin: false) {
+  @include type-size(24, 1.25, $margin);
+}
+
+body {
+  color: $black;
+  font-family: $body;
+  font-weight: 400;
+  @include type-normal;
+}
+
+::selection { // Webkit
+  color: $white;
+  background: $red;
+  text-shadow: none;
+}
+
+a {
+  @include link-handler($black, $black, null, true, null, false);
+}
+
+h1 {
+  @include type-big(true);
+  font-weight: 700;
+}
+
+h2 {
+  @include type-big;
+}
+
+p {
+  @include type-normal(true);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  em, i {
+    font-style: italic;
+    letter-spacing: -0.04em;
+  }
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+em, i {
+  font-style: normal;
+}

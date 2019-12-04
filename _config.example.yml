@@ -1,0 +1,55 @@
+encoding: utf-8
+# Site settings +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## title & header
+title: Yassss - Yet another simple static site starter
+subtitle: A bold and beautiful start to a static website
+
+## meta tag content (also affects facebook og: tags)
+description: > # this means to ignore newlines
+  Yet another simple static site starter. This is a rad static website starting point.
+
+## meta og tags
+meta_site_name: Yassss
+fb_app_id: XXXXXXXXXXXX
+
+## google analytics id (leave blank if you do not want to use Google Analytics)
+ga_id: 
+
+## DO NOT CHANGE THINGS BELOW THIS LINE ---------------------------------------------------------------------
+
+# Build settings ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#### you can pretty much ignore everything in this section ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+## basic settings
+url: "http://yassss.dev" # the base hostname & protocol for your site (include protocol ‘https://’)
+block_indexing: BLOCK_INDEXING # sets noindex site-wide if `true` (may be desirable for staging servers)
+
+plugins:
+  - jekyll-assets
+  - jekyll-sitemap
+  - jekyll-feed
+
+## feed setup
+feed: # see https://github.com/jekyll/jekyll-feed for defaults/options 
+
+## assets setup
+# remember to set `JEKYLL_ENV=production` for all of the asset goodies
+assets: # see https://github.com/envygeeks/jekyll-assets for defaults/options
+  # compression: false # true on JEKYLL_ENV=production
+
+## do not copy/move these files when running a build
+exclude:
+  - node_modules
+  - README.md
+  - Gemfile
+  - Rakefile
+  - vendor
+  - lib
+  - config
+  - redirects.txt
+  - package.json
+  - "*.lock"
+  - "*.log"
+
+plugins_dir: _plugins

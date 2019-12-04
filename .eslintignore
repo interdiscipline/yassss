@@ -1,0 +1,7 @@
+# ignore files/directories that start with a period (.)
+.*
+
+# ignore specific directories
+_site/*
+vendor/*
+_assets/javascript/vendor/*
