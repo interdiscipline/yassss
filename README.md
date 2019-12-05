@@ -53,7 +53,7 @@ Yassss uses the [`jekyll-assets`](https://github.com/envygeeks/jekyll-assets) pl
 
 ```css
 body {
-  background-image: asset_url("'{{ bg.png }}'");
+  background-image: asset_url("test.png");
 }
 ```
 
