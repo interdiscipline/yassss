@@ -9,7 +9,7 @@ The goal of Yassss is simple and unambitious: provide a quick, easy way to spin 
 
 [View the demo build.](https://yassss.site)
 
-### Setup
+### Local Setup
 
 Use this repo as a template—no need to clone it or fork it unless you’re planning to contribute.
 
@@ -32,7 +32,9 @@ Make sure the following environment variables are set:
 
 Tweak the `.circleci/config.yml` file to observe the branches you wish to deploy on. By default it deploys to Production when commits are made to `production` and to Staging when commits are made to either `staging` or `master`.
 
-All builds run [HTML Proofer](https://github.com/gjtorikian/html-proofer) in addition to js/sass linting.
+All builds run [HTML Proofer](https://github.com/gjtorikian/html-proofer) in addition to js/sass linting. You may need to disable it (comment it out in `.circleci/config.yml`) on your first deploy(s) until the site is up and running publicly.
+
+If you are new to static hosting on [AWS](http://aws.amazon.com), Dustin Curtis has a [great guide](https://dcurt.is/how-to-host-a-static-website-on-aws-with-https) that should get you pretty far.
 
 ### Content
 
