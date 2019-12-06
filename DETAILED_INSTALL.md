@@ -15,6 +15,8 @@ If you do not have rbenv, easiest way to install it is using [Homebrew](https://
 $ brew install rbenv ruby-build
 ```
 
+> Be sure to follow the instructions to add the correct bits to your shell profile (usually `~/.bash_profile` or `~/.zshrc`).
+
 If they are already installed, you may need to upgrade them to be able to install newer Rubies like `2.6.5`:
 
 ```sh
@@ -30,6 +32,8 @@ You can follow the [installation instructions](https://github.com/nvm-sh/nvm/blo
 ```sh
 $ brew install nvm
 ```
+
+> Be sure to follow the instructions to add the correct bits to your shell profile (usually `~/.bash_profile` or `~/.zshrc`).
 
 ## Installing Ruby 2.6.5 with rbenv
 
