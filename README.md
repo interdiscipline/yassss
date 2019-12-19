@@ -3,9 +3,9 @@
 
 ### Basics
 
-**Yassss** is a [Jekyll](https://jekyllrb.com/) app that builds CDN-ready static content with proper asset cache-busting. It assumes deployment to Amazon S3 via CircleCI. In addition to the base Jekyll install, it adds support for a `content` section/tag that is parsed with [Markdown](https://daringfireball.net/projects/markdown/). It has some opinionated structure to the javascript and sass/css and accompanying linting, but that can be easily changed/removed.
+**Yassss** is a [Jekyll](https://jekyllrb.com/) app that builds CDN-ready static content with proper asset cache-busting. It assumes deployment to Amazon S3 via CircleCI. In addition to the base Jekyll install, it adds support for a `content` section/tag that is parsed with [Markdown](https://daringfireball.net/projects/markdown/). It has some opinionated structure to the javascript, sass/css, and the accompanying linting, but that can be easily changed/removed.
 
-The goal of Yassss is simple and unambitious: provide a quick, easy way to spin up a new static site, using Jekyll, without much tinkering. It has opinions and maybe you agree with them and will also find it useful.
+The goal of Yassss is simple and unambitious: _provide a quick, easy way to spin up a new static site, using Jekyll, without much tinkering_. It has opinions and maybe you agree with them and will also find it useful.
 
 [View the demo build.](https://yassss.site)
 

@@ -25,7 +25,7 @@ $ brew upgrade rbenv ruby-build
 
 ### Node
 
-You may also need to use a version manager like [nvm](https://github.com/nvm-sh/nvm) to install and use Node `12.13.1`.
+You may also need to use a version manager like [nvm](https://github.com/nvm-sh/nvm) to install and use Node `12.14.0`.
 
 You can follow the [installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) or use [Homebrew](https://brew.sh). Technically the brew installation is not supported, but it seems to work fine.
 
@@ -70,19 +70,19 @@ You should now see:
 /Users/gblakeman/.rbenv/versions/2.6.5/bin/ruby
 ```
 
-## Installing and using Node 12.13.1 with nvm
+## Installing and using Node 12.14.0 with nvm
 
-Once `nvm` is installed, navigate into the repo directory and install `12.13.1`:
+Once `nvm` is installed, navigate into the repo directory and install `12.14.0`:
 ```sh
-$ nvm install 12.13.1
+$ nvm install 12.14.0
 ```
 
 ### Using `nvm`
 
-After `12.13.1` is installed, when you navigate into the repo directory, set your Node version:
+After `12.14.0` is installed, when you navigate into the repo directory, set your Node version:
 
 ```sh
-$ nvm use 12.13.1
+$ nvm use 12.14.0
 ```
 
 ## Install Jekyll and everything else
