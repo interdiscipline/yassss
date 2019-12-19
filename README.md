@@ -59,6 +59,12 @@ body {
 }
 ```
 
+```markdown
+In a markdown file:
+
+![Cliff]({% asset cliff.jpg @path %})
+```
+
 [More info…](https://github.com/envygeeks/jekyll-assets)
 
 #### Bourbon & Normalize
