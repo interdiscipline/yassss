@@ -42,6 +42,7 @@ assets: # see https://github.com/envygeeks/jekyll-assets for defaults/options
 exclude:
   - node_modules
   - README.md
+  - DETAILED_INSTALL.md
   - Gemfile
   - Rakefile
   - vendor
