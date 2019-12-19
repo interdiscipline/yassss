@@ -15,8 +15,7 @@ module Jekyll
     def render(context)
       file = File.join Dir.pwd, "_content", @text
       tmpl = File.read(file, encoding: 'utf-8')
-      site = context.registers[:site]
-      tmpl = (Liquid::Template.parse tmpl).render site.site_payload
+      tmpl = (Liquid::Template.parse(tmpl).render(context))
       html = Kramdown::Document.new(tmpl).to_html
     end
   end
