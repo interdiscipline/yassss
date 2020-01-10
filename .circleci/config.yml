@@ -8,7 +8,7 @@ jobs:
     working_directory: ~/yassss
 
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.5
         environment:
           JEKYLL_ENV: production
 
@@ -27,8 +27,32 @@ jobs:
           - v1-dependencies-
 
       - run:
+          name: Install nvm
+          command: |
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+
+      - run:
+          name: Install Node / Yarn
+          command: |
+            set +e
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+            nvm install v12.14.0
+            nvm alias default v12.14.0
+            npm install yarn -g
+
+      - run:
           name: Install dependencies
-          command: yarn --ignore-engines install
+          command: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+            nvm use
+
+            yarn --ignore-engines install
 
       - save_cache:
           paths:
@@ -62,12 +86,23 @@ jobs:
           # the combined `yarn lint` command only surfaces the exit code of the second command (stylelint)
           # and will not cause the build to fail on a javascript linting error
           command: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+            nvm use
+
             yarn lint:js
             yarn lint:css
 
       - run:
           name: Build the site
-          command: bundle exec jekyll build
+          command: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+            nvm use
+
+            bundle exec jekyll build
 
       - persist_to_workspace:
           root: ./
