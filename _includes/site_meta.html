@@ -1,6 +1,8 @@
 <meta content="{% if site.meta_site_name %}{{ site.meta_site_name }}{% else %}{{ site.title }}{% endif %}" property="og:site_name">
 {% if page.title %}<meta content="{% unless page.css_hook == 'index' %}{% if page.title %}{{ page.title }} | {% endif %}{% endunless %}{{ site.title }}{% if site.subtitle %} | {{ site.subtitle }}{% endif %}" property="og:title">{% endif %}
 <meta content="website" property="og:type">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ site.url }}{% asset share-image.png @path %}" />
 <meta content="{{ site.url }}{% asset share-image.png @path %}" property="og:image">
 <meta content="{{ page.url | replace:'index.html','' | prepend: site.url }}" property="og:url">
 <meta content="{{ site.description }}" property="og:description">
