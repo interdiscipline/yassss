@@ -1,3 +1,4 @@
+<meta name="web_author" content="Put Your Name Here / yassss.site">
 <meta content="{% if site.meta_site_name %}{{ site.meta_site_name }}{% else %}{{ site.title }}{% endif %}" property="og:site_name">
 {% if page.title %}<meta content="{% unless page.css_hook == 'index' %}{% if page.title %}{{ page.title }} | {% endif %}{% endunless %}{{ site.title }}{% if site.subtitle %} | {{ site.subtitle }}{% endif %}" property="og:title">{% endif %}
 <meta content="website" property="og:type">
@@ -5,6 +6,7 @@
 <meta name="twitter:image" content="{{ site.url }}{% asset share-image.png @path %}" />
 <meta content="{{ site.url }}{% asset share-image.png @path %}" property="og:image">
 <meta content="{{ page.url | replace:'index.html','' | prepend: site.url }}" property="og:url">
+<meta name="description" content="{% if page.excerpt %}{% if page.title_alternate %}{{ page.title_alternate }} – {{ page.categories | first | capitalize }} | {% elsif page.title %}{{ page.title }} – {{ page.categories | first | capitalize }} | {% endif %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | replace: '  ', ' ' }}{% endif %}">
 <meta content="{{ site.description }}" property="og:description">
 {% if site.fb_app_id %}<meta content="{{ site.fb_app_id }}" property="fb:app_id">{% endif %}
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" data-proofer-ignore />
