@@ -34,6 +34,10 @@ set up meta share image `meta_share_image`
 {% endcomment %}
 {% capture base_share_image_path %}{% asset share-image.png @path %}{% endcapture %}
 {% assign meta_share_image = site.url | append: base_share_image_path %}
+{% if page.share_image %}
+  {% capture page_share_image_path %}{% asset "{{ page.share_image }}" @path %}{% endcapture %}
+  {% assign meta_share_image = site.url | append: page_share_image_path %}
+{% endif %}
 
 {% comment %}
 set up meta cononical url `meta_share_url`
