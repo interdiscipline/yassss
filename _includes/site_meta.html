@@ -1,4 +1,4 @@
-{% comment%}
+{% comment %}
 set up meta site title: `meta_page_title`
 {% endcomment %}
 {% if site.title %}
@@ -18,7 +18,7 @@ set up meta site title: `meta_page_title`
   {% assign meta_page_title = title_part_one | append: title_part_two %}
 {% endif %}
 
-{% comment%}
+{% comment %}
 set up meta description `meta_description`
 {% endcomment %}
 {% if site.description %}
@@ -29,22 +29,31 @@ set up meta description `meta_description`
   {% assign page_excerpt = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
 {% endif %}
 
-{% comment%}
+{% comment %}
 set up meta share image `meta_share_image`
 {% endcomment %}
 {% capture base_share_image_path %}{% asset share-image.png @path %}{% endcapture %}
 {% assign meta_share_image = site.url | append: base_share_image_path %}
 
-{% comment%}
+{% comment %}
 set up meta cononical url `meta_share_url`
 {% endcomment %}
 {% assign meta_share_url = page.url | replace: 'index.html', '' | prepend: site.url %}
+
+{% comment %}
+set up meta share type `meta_type`
+/ assumes articles are using a layout named 'post'
+{% endcomment %}
+{% assign meta_type = 'website' %}
+{% if page.layout == 'post' %}
+  {% assign meta_type = 'article' %}
+{% endif %}
 
 <title>{{ meta_page_title }}</title>
 <meta name="web_author" content="gb Studio / grantblakeman.com">
 <meta content="{% if site.meta_site_name %}{{ site.meta_site_name }}{% else %}{{ site.title }}{% endif %}" property="og:site_name">
 {% if meta_page_title %}<meta content="{{ meta_page_title }}" property="og:title">{% endif %}
-<meta content="website" property="og:type">
+<meta content="{{ meta_type }}" property="og:type">
 {% if meta_share_image %}<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="{{ meta_share_image }}" />
 <meta content="{{ meta_share_image }}" property="og:image">{% endif %}
