@@ -24,9 +24,12 @@ set up meta description `meta_description`
 {% if site.description %}
   {% assign meta_page_description = site.description | replace: '  ', ' ' %}
 {% endif %}
-{% if page.excerpt %}
+{% if page.description %}
+  {% assign meta_page_description = page.description %}
+{% elsif page.excerpt %}
   {% assign page_category = page.categories | first | capitalize %}
   {% assign page_excerpt = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+  {% assign meta_page_description = page_category | append: page_excerpt %}
 {% endif %}
 
 {% comment %}
