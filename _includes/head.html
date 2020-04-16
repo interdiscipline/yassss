@@ -4,8 +4,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>{% unless page.css_hook == 'index' %}{% if page.title %}{{ page.title }} | {% endif %}{% endunless %}{{ site.title }}{% if site.subtitle %} | {{ site.subtitle }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{% if page.title_alternate %}{{ page.title_alternate }} – {{ page.categories | first | capitalize }} | {% elsif page.title %}{{ page.title }} – {{ page.categories | first | capitalize }} | {% endif %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | replace: '  ', ' ' }}{% endif %}">
-  <meta name="web_author" content="gb Studio / grantblakeman.com">
 
   {% include site_meta.html %}
 
