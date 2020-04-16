@@ -1,10 +1,75 @@
+{% comment %}
+set up meta site title: `meta_page_title`
+{% endcomment %}
+{% if site.title %}
+  {% assign meta_page_title = site.title %}
+{% endif %}
+{% if page.title and site.title %}
+  {% assign title_part_one = '' %}
+  {% assign title_part_two = site.title %}
+  {% unless page.css_hook == 'index' %}
+    {% if page.title and page.title != site.title %}
+      {% assign title_part_one = page.title | append: ' | ' %}
+    {% endif %}
+  {% endunless %}
+  {% if site.subtitle and site.subtitle != site.description %}
+    {% assign title_part_two = title_part_two | append: ' | ' | append: site.subtitle %}
+  {% endif %}
+  {% assign meta_page_title = title_part_one | append: title_part_two %}
+{% endif %}
+
+{% comment %}
+set up meta description `meta_description`
+{% endcomment %}
+{% if site.description %}
+  {% assign meta_page_description = site.description | replace: '  ', ' ' %}
+{% endif %}
+{% if page.description %}
+  {% assign meta_page_description = page.description %}
+{% elsif page.excerpt %}
+  {% assign page_category = page.categories | first | capitalize %}
+  {% assign page_excerpt = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+  {% assign meta_page_description = page_category | append: page_excerpt %}
+{% endif %}
+
+{% comment %}
+set up meta share image `meta_share_image`
+{% endcomment %}
+{% capture base_share_image_path %}{% asset share-image.png @path %}{% endcapture %}
+{% assign meta_share_image = site.url | append: base_share_image_path %}
+{% if page.share_image %}
+  {% capture page_share_image_path %}{% asset "{{ page.share_image }}" @path %}{% endcapture %}
+  {% assign meta_share_image = site.url | append: page_share_image_path %}
+{% endif %}
+
+{% comment %}
+set up meta cononical url `meta_share_url`
+{% endcomment %}
+{% assign meta_share_url = page.url | replace: 'index.html', '' | prepend: site.url %}
+
+{% comment %}
+set up meta share type `meta_type`
+/ assumes articles are using a layout named 'post'
+{% endcomment %}
+{% assign meta_type = 'website' %}
+{% if page.layout == 'post' %}
+  {% assign meta_type = 'article' %}
+{% endif %}
+
+<title>{{ meta_page_title }}</title>
+<meta name="web_author" content="gb Studio / grantblakeman.com">
 <meta content="{% if site.meta_site_name %}{{ site.meta_site_name }}{% else %}{{ site.title }}{% endif %}" property="og:site_name">
-{% if page.title %}<meta content="{% unless page.css_hook == 'index' %}{% if page.title %}{{ page.title }} | {% endif %}{% endunless %}{{ site.title }}{% if site.subtitle %} | {{ site.subtitle }}{% endif %}" property="og:title">{% endif %}
-<meta content="website" property="og:type">
-<meta content="{{ site.url }}{% asset share-image.png @path %}" property="og:image">
-<meta content="{{ page.url | replace:'index.html','' | prepend: site.url }}" property="og:url">
-<meta content="{{ site.description }}" property="og:description">
+{% if meta_page_title %}<meta content="{{ meta_page_title }}" property="og:title">{% endif %}
+<meta content="{{ meta_type }}" property="og:type">
+{% if meta_share_image %}<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ meta_share_image }}" />
+<meta content="{{ meta_share_image }}" property="og:image">{% endif %}
+<meta name="description" content="{{ meta_page_description }}">
+<meta content="{{ meta_page_description }}" property="og:description">
+{% if meta_share_url %}<meta content="{{ meta_share_url }}" property="og:url">
+<link rel="canonical" href="{{ meta_share_url }}" data-proofer-ignore />{% endif %}
 {% if site.fb_app_id %}<meta content="{{ site.fb_app_id }}" property="fb:app_id">{% endif %}
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" data-proofer-ignore />
 {% if page.sitemap == false or page.index == false or site.block_indexing == true %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% comment %}
 {% feed_meta %}
+{% endcomment %}

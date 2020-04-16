@@ -22,7 +22,9 @@ ga_id:
 #### you can pretty much ignore everything in this section ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ## basic settings
-url: "https://yassss.site" # the base hostname & protocol for your site (include protocol ‘https://’)
+# leave BASE_URL and configure in the CI config if you have different environments
+url: "https://BASE_URL" # the base hostname & protocol for your site (include protocol ‘https://’)
+# leave BLOCK_INDEXING and configure in the CI config if you have different environments
 block_indexing: BLOCK_INDEXING # sets noindex site-wide if `true` (may be desirable for staging servers)
 
 plugins:
