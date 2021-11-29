@@ -1,5 +1,5 @@
 # Yassss - Yet another simple static site starter
-## [gb Studio](http://grantblakeman.com), built by [Grant Blakeman](http://instagram.com/gb)
+## [Interdiscipline](https://interdiscipline.com), built by [Grant Blakeman](https://instagram.com/grant.blakeman)
 
 ### Basics
 
