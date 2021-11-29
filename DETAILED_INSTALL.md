@@ -7,7 +7,7 @@ This boilerplate relies on specific versions of Jekyll, Ruby (see the `.ruby-ver
 
 ### Ruby
 
-You will need to use a version manager like [rbenv](https://github.com/rbenv/rbenv) to install and use Ruby `2.6.5`.
+You will need to use a version manager like [rbenv](https://github.com/rbenv/rbenv) to install and use Ruby `2.7.3`.
 
 If you do not have rbenv, easiest way to install it is using [Homebrew](https://github.com/rbenv/rbenv#homebrew-on-macos):
 
@@ -17,7 +17,7 @@ $ brew install rbenv ruby-build
 
 > Be sure to follow the instructions to add the correct bits to your shell profile (usually `~/.bash_profile` or `~/.zshrc`).
 
-If they are already installed, you may need to upgrade them to be able to install newer Rubies like `2.6.5`:
+If they are already installed, you may need to upgrade them to be able to install newer Rubies like `2.7.3`:
 
 ```sh
 $ brew upgrade rbenv ruby-build
@@ -35,7 +35,7 @@ $ brew install nvm
 
 > Be sure to follow the instructions to add the correct bits to your shell profile (usually `~/.bash_profile` or `~/.zshrc`).
 
-## Installing Ruby 2.6.5 with rbenv
+## Installing Ruby 2.7.3 with rbenv
 
 Once rbenv has been installed (or if you already have it installed), navigate into the repo directory.
 
@@ -48,13 +48,13 @@ $ rbenv which ruby
 You should get a result like:
 
 ```sh
-/Users/gblakeman/.rbenv/versions/2.6.5/bin/ruby
+/Users/gblakeman/.rbenv/versions/2.7.3/bin/ruby
 ```
 
-If you do not, install Ruby `2.6.5`:
+If you do not, install Ruby `2.7.3`:
 
 ```sh
-$ rbenv install 2.6.5
+$ rbenv install 2.7.3
 ```
 
 After installing, run:
@@ -67,7 +67,7 @@ $ rbenv which ruby
 You should now see:
 
 ```sh
-/Users/gblakeman/.rbenv/versions/2.6.5/bin/ruby
+/Users/gblakeman/.rbenv/versions/2.7.3/bin/ruby
 ```
 
 ## Installing and using Node 12.14.0 with nvm
