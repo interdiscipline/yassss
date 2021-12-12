@@ -13,8 +13,8 @@ jobs:
           JEKYLL_ENV: production
 
     environment:
-      URL_PROD: yassss.site
-      URL_STAGING: staging.yassss.site
+      URL_PROD: yassss.interdiscipline.com
+      URL_STAGING: yassss.interdiscipline.com
 
     steps:
       - checkout
@@ -124,8 +124,8 @@ jobs:
     environment:
       S3_BUCKET_NAME_PROD: yassss.demo
       S3_BUCKET_NAME_STAGING: yassss.demo
-      URL_PROD: yassss.site
-      URL_STAGING: staging.yassss.site
+      URL_PROD: yassss.interdiscipline.com
+      URL_STAGING: yassss.interdiscipline.com
 
     steps:
       - attach_workspace:
