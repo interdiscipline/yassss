@@ -1,5 +1,5 @@
 # Yassss - Yet another simple static site starter
-## [Interdiscipline](https://interdiscipline.com), built by [Grant Blakeman](https://github.com/gblakeman)
+## Built by [Interdiscipline](https://interdiscipline.com) ([Grant Blakeman](https://github.com/gblakeman))
 
 ### Basics
 
