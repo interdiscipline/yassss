@@ -2,6 +2,7 @@
   "processors": ["stylelint"],
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-standard-scss"
   ],
   "plugins": [
     "stylelint-scss"
@@ -73,6 +74,7 @@
         "except": ["first-nested"]
     } ],
     "scss/at-rule-no-unknown": true,
+    "scss/double-slash-comment-empty-line-before": null,
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
     "selector-descendant-combinator-no-non-space": true,

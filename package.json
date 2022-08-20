@@ -4,17 +4,17 @@
   "description": "Yet another simple static site starter (for Jekyll)",
   "license": "MIT",
   "engines": {
-    "node": "12.14.0"
+    "node": "14.20.0"
   },
   "scripts": {
     "prebuild": "npm run clean",
     "build": "bundle exec jekyll build",
     "clean": "rimraf _site && rimraf dist",
-    "lint": "npm run lint:js; npm run lint:css",
-    "lint:eslint": "eslint './_assets/javascript/**/*'",
-    "lint:stylelint": "stylelint './_assets/css/**/*'",
-    "lint:js": "npm run lint:eslint",
-    "lint:css": "npm run lint:stylelint",
+    "lint": "npm run lint:js --scripts-prepend-node-path; npm run lint:css --scripts-prepend-node-path",
+    "lint:eslint": "eslint './_assets/javascript/**/*' ",
+    "lint:stylelint": "stylelint './_assets/css/**/*' ",
+    "lint:js": "npm run lint:eslint --scripts-prepend-node-path",
+    "lint:css": "npm run lint:stylelint --scripts-prepend-node-path",
     "lint:staged": "lint-staged",
     "preinstall": "bundle install",
     "start": "bundle exec jekyll serve",
@@ -44,9 +44,11 @@
       "jest": true,
       "es6": true
     },
-    "overrides": {
-      "files": "_assets/javascript/*.js.liquid"
-    },
+    "overrides": [
+      {
+        "files": "_assets/javascript/*.js.liquid"
+      }
+    ],
     "plugins": [
       "jsx-a11y"
     ],
@@ -104,7 +106,12 @@
         "error",
         "consistent"
       ],
-      "one-var": ["error", { "let": "consecutive" }],
+      "one-var": [
+        "error",
+        {
+          "let": "consecutive"
+        }
+      ],
       "one-var-declaration-per-line": 0,
       "prefer-destructuring": 0,
       "prefer-template": 2,
@@ -126,21 +133,22 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "del": "^2.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-base": "15.0.0",
     "eslint-import-resolver-webpack": "^0.9.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "^7.8.1",
     "eslint-plugin-redux-saga": "^0.8.0",
     "lint-staged": "^7.1.0",
     "pre-commit": "^1.2.2",
     "redux-saga": "^0.15.3",
     "rimraf": "^2.4.3",
-    "stylelint": "^9.2.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-scss": "^3.4.1",
-    "yargs": "^4.4.0"
+    "stylelint": "14.10.0",
+    "stylelint-config-standard": "27.0.0",
+    "stylelint-config-standard-scss": "5.0.0",
+    "stylelint-scss": "4.3.0",
+    "yargs": "17.5.1"
   }
 }
