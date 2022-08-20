@@ -44,9 +44,11 @@
       "jest": true,
       "es6": true
     },
-    "overrides": [{
-      "files": "_assets/javascript/*.js.liquid"
-    }],
+    "overrides": [
+      {
+        "files": "_assets/javascript/*.js.liquid"
+      }
+    ],
     "plugins": [
       "jsx-a11y"
     ],
@@ -145,10 +147,8 @@
     "rimraf": "^2.4.3",
     "stylelint": "14.10.0",
     "stylelint-config-standard": "27.0.0",
+    "stylelint-config-standard-scss": "5.0.0",
     "stylelint-scss": "4.3.0",
     "yargs": "^4.4.0"
-  },
-  "dependencies": {
-    "stylelint-config-standard-scss": "^5.0.0"
   }
 }

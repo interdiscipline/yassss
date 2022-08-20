@@ -1269,7 +1269,7 @@ eslint-plugin-jsx-a11y@6.6.1:
     minimatch "^3.1.2"
     semver "^6.3.0"
 
-eslint-plugin-react@7.30.1:
+eslint-plugin-react@^7.8.1:
   version "7.30.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.30.1.tgz#2be4ab23ce09b5949c6631413ba64b2810fd3e22"
   integrity sha512-NbEvI9jtqO46yJA3wcRF9Mo0lF9T/jhdHqhCHXiXtD+Zcb98812wvokjWpU7Q4QH5edo6dmqrukxVvWWXHlsUg==
@@ -1289,10 +1289,10 @@ eslint-plugin-react@7.30.1:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.7"
 
-eslint-plugin-redux-saga@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-redux-saga/-/eslint-plugin-redux-saga-1.3.2.tgz#e9b386c4c9a3cd87b029a3f71ff8f791d53531d3"
-  integrity sha512-cqkzrmXhp9DEPnjqSb1dL89+0FQPydnLNsEb6MDie2tQWkYZqxq/OjUpOpT6IWJ9+weG4i/MBfbLFpP6zW+g4g==
+eslint-plugin-redux-saga@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-redux-saga/-/eslint-plugin-redux-saga-0.8.0.tgz#0c9d6b44183ded4b7bb470cdfad30244afbb1485"
+  integrity sha512-SXIk5Z5ggPa1618h67EKPFDP6L2/FiF9wQFZ0b9vfRlLECOVupWqoj4N9LUegBjhPgqjnHJKi9ZyXE9/vFWOjA==
 
 eslint-scope@3.7.1:
   version "3.7.1"
@@ -4055,7 +4055,7 @@ stylelint-config-recommended@^9.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-9.0.0.tgz#1c9e07536a8cd875405f8ecef7314916d94e7e40"
   integrity sha512-9YQSrJq4NvvRuTbzDsWX3rrFOzOlYBmZP+o513BJN/yfEmGSr0AxdvrWs0P/ilSpVV/wisamAHu5XSk8Rcf4CQ==
 
-stylelint-config-standard-scss@^5.0.0:
+stylelint-config-standard-scss@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-standard-scss/-/stylelint-config-standard-scss-5.0.0.tgz#afc5e43c73e7a15875b8f30f54204b01a2634743"
   integrity sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==
