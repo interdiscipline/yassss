@@ -44,9 +44,9 @@
       "jest": true,
       "es6": true
     },
-    "overrides": {
+    "overrides": [{
       "files": "_assets/javascript/*.js.liquid"
-    },
+    }],
     "plugins": [
       "jsx-a11y"
     ],
@@ -131,12 +131,12 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "del": "^2.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-base": "15.0.0",
     "eslint-import-resolver-webpack": "^0.9.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "^7.8.1",
     "eslint-plugin-redux-saga": "^0.8.0",
     "lint-staged": "^7.1.0",
