@@ -104,7 +104,12 @@
         "error",
         "consistent"
       ],
-      "one-var": ["error", { "let": "consecutive" }],
+      "one-var": [
+        "error",
+        {
+          "let": "consecutive"
+        }
+      ],
       "one-var-declaration-per-line": 0,
       "prefer-destructuring": 0,
       "prefer-template": 2,
