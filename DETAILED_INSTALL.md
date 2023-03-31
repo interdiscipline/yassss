@@ -25,7 +25,7 @@ $ brew upgrade rbenv ruby-build
 
 ### Node
 
-You may also need to use a version manager like [nvm](https://github.com/nvm-sh/nvm) to install and use Node `12.14.0`.
+You may also need to use a version manager like [nvm](https://github.com/nvm-sh/nvm) to install and use Node `14.20.0`.
 
 You can follow the [installation instructions](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update) or use [Homebrew](https://brew.sh). Technically the brew installation is not supported, but it seems to work fine.
 
@@ -70,11 +70,11 @@ You should now see:
 /Users/gblakeman/.rbenv/versions/2.7.3/bin/ruby
 ```
 
-## Installing and using Node 12.14.0 with nvm
+## Installing and using Node 14.20.0 with nvm
 
-Once `nvm` is installed, navigate into the repo directory and install `12.14.0`:
+Once `nvm` is installed, navigate into the repo directory and install `14.20.0`:
 ```sh
-$ nvm install 12.14.0
+$ nvm install 14.20.0
 ```
 
 ### Using `nvm`
