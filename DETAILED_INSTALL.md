@@ -64,7 +64,7 @@ $ rbenv rehash
 $ rbenv which ruby
 ```
 
-You should now see:
+You should now see something like:
 
 ```sh
 /Users/gblakeman/.rbenv/versions/2.7.3/bin/ruby
@@ -82,7 +82,14 @@ $ nvm install 14.20.0
 After `14.20.0` is installed, when you navigate into the repo directory, set your Node version:
 
 ```sh
-$ nvm use 14.20.0
+$ nvm use
+```
+
+You should now see something like:
+
+```sh
+Found '/Users/gblakeman/.nvmrc' with version <v14.20.0>
+Now using node v14.20.0 (npm v6.14.17)
 ```
 
 ## Install Jekyll and everything else
