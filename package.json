@@ -30,10 +30,10 @@
   "pre-commit": "lint:staged",
   "repository": {
     "type": "git",
-    "url": "git://github.com/gblakeman/yassss.git"
+    "url": "git://github.com/interdiscipline/yassss.git"
   },
   "bugs": {
-    "url": "https://github.com/gblakeman/yassss"
+    "url": "https://github.com/interdiscipline/yassss"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
