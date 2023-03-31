@@ -79,10 +79,10 @@ $ nvm install 12.14.0
 
 ### Using `nvm`
 
-After `12.14.0` is installed, when you navigate into the repo directory, set your Node version:
+After `14.20.0` is installed, when you navigate into the repo directory, set your Node version:
 
 ```sh
-$ nvm use 12.14.0
+$ nvm use 14.20.0
 ```
 
 ## Install Jekyll and everything else
