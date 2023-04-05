@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "bundle exec jekyll build",
+    "build": "JEKYLL_ENV=production bundle exec jekyll build",
     "clean": "rimraf _site && rimraf dist",
     "lint": "npm run lint:js --scripts-prepend-node-path; npm run lint:css --scripts-prepend-node-path",
     "lint:eslint": "eslint './_assets/javascript/**/*' ",
