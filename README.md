@@ -13,7 +13,7 @@ The goal of Yassss is simple and unambitious: _provide a quick, easy way to spin
 
 Use this repo as a template—no need to clone it or fork it unless you’re planning to contribute.
 
-Be sure to copy `_config.example.yml` and name it `_config.yml`. If you are planning on deploying with CircleCI, leave the `.example` version in place and set your environment variables. Yasss uses specific versions of Ruby and Node. If you’re new to managing multiple ruby/node versions, you may want to check the [Detailed Install](https://github.com/gblakeman/yassss/blob/master/DETAILED_INSTALL.md) instructions.
+Be sure to copy `_config.example.yml` and name it `_config.yml`. If you are planning on deploying with CircleCI, leave the `.example` version in place and set your environment variables. Yasss uses specific versions of Ruby and Node. If you’re new to managing multiple ruby/node versions, you may want to check the [Detailed Install](https://github.com/interdiscipline/yassss/blob/master/DETAILED_INSTALL.md) instructions.
 
 Install everything with:
 
