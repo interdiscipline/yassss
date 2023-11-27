@@ -5,7 +5,7 @@
 
 **Yassss** is a [Jekyll](https://jekyllrb.com/) app that builds CDN-ready static content with proper asset cache-busting. It assumes deployment to Amazon S3 via CircleCI. In addition to the base Jekyll install, it adds support for a `content` section/tag that is parsed with [Markdown](https://daringfireball.net/projects/markdown/). It has some opinionated structure to the javascript, sass/css, and the accompanying linting, but that can be easily changed/removed.
 
-The goal of Yassss is simple and unambitious: _provide a quick, easy way to spin up a new static site, using Jekyll, without much tinkering_. It has opinions and maybe you agree with them and will also find it useful.
+The goal of Yassss is simple and unambitious: _provide a quick, easy way to spin up a new, production-ready static site, using Jekyll, without much tinkering_. It has opinions and maybe you agree with them and will also find it useful.
 
 [View the demo build.](https://yassss.interdiscipline.com)
 
@@ -13,7 +13,7 @@ The goal of Yassss is simple and unambitious: _provide a quick, easy way to spin
 
 Use this repo as a template—no need to clone it or fork it unless you’re planning to contribute.
 
-Be sure to copy `_config.example.yml` and name it `_config.yml`. If you are planning on deploying with CircleCI, leave the `.example` version in place and set your environment variables. Yasss uses specific versions of Ruby and Node. If you’re new to managing multiple ruby/node versions, you may want to check the [Detailed Install](https://github.com/interdiscipline/yassss/blob/master/DETAILED_INSTALL.md) instructions.
+Be sure to copy `_config.example.yml` and name it `_config.yml`. If you are planning on deploying with CircleCI, leave the `.example` version in place and set your environment variables. Yasss uses specific versions of Ruby and Node. If you’re new to managing multiple ruby/node versions, you may want to check the [Detailed Install](https://github.com/interdiscipline/yassss/blob/main/DETAILED_INSTALL.md) instructions.
 
 Install everything with:
 
@@ -30,9 +30,9 @@ Make sure the following environment variables are set:
 * `AWS_ACCESS_KEY_ID`
 * `AWS_SECRET_ACCESS_KEY`
 
-Tweak the `.circleci/config.yml` file to observe the branches you wish to deploy on. By default it deploys to Production when commits are made to `production` and to Staging when commits are made to either `staging` or `master`.
+Tweak the `.circleci/config.yml` file to observe the branch(es) you wish to deploy on. By default it deploys to Production when commits are made to `production` and to Staging when commits are made to either `staging` or `main`.
 
-All builds run [HTML Proofer](https://github.com/gjtorikian/html-proofer) in addition to js/sass linting. You may need to disable it (comment it out in `.circleci/config.yml`) on your first deploy(s) until the site is up and running publicly.
+All builds run [HTML Proofer](https://github.com/gjtorikian/html-proofer) in addition to js/sass linting. **You may need to disable it** (comment it out in `.circleci/config.yml`) on your _first deploy(s)_ until the site is up and running publicly because it will check internal links on your site in addition to links to external sites.
 
 If you are new to static hosting on [AWS](http://aws.amazon.com), Dustin Curtis has a [great guide](https://dcurt.is/how-to-host-a-static-website-on-aws-with-https) that should get you pretty far.
 
