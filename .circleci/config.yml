@@ -142,7 +142,7 @@ jobs:
                 ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_PROD/ --delete --acl public-read
             elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                 ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_STAGING/ --delete --acl public-read
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+            elif [ "${CIRCLE_BRANCH}" == "main" ]; then
                 ~/.local/bin/aws s3 sync ./_site s3://$S3_BUCKET_NAME_STAGING/ --delete --acl public-read
             fi
 
@@ -159,5 +159,5 @@ workflows:
               only:
                 - production
                 - staging
-                - master
+                - main
 
